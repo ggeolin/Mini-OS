@@ -7,8 +7,6 @@
 #include "disk.h"
 #include "fs.h"
 
-/* TODO: Phase 1 */
-
 #define FAT_EOC 0xFFFF
 
 /* 
