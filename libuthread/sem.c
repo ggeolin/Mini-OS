@@ -6,14 +6,12 @@
 #include "private.h"
 
 struct semaphore {
-	/* TODO Phase 3 */
 	int key;
 	queue_t block_queue;
 };
 
 sem_t sem_create(size_t count)
 {
-	/* TODO Phase 3 */
 	sem_t new_sem = malloc(sizeof(struct semaphore));
 
 	if(new_sem == NULL)
@@ -27,7 +25,6 @@ sem_t sem_create(size_t count)
 
 int sem_destroy(sem_t sem)
 {
-	/* TODO Phase 3 */
 	if(sem == NULL || queue_length(sem->block_queue) == 0)
 		return -1;
 	
@@ -39,7 +36,6 @@ int sem_destroy(sem_t sem)
 
 int sem_down(sem_t sem)
 {
-	/* TODO Phase 3 */
 	if(sem == NULL)
 		return -1;
 
@@ -64,7 +60,6 @@ int sem_down(sem_t sem)
 
 int sem_up(sem_t sem)
 {
-	/* TODO Phase 3 */
 	if(sem == NULL)
 		return -1;
 
