@@ -28,21 +28,18 @@ static void handler(int signum) {
 
 void preempt_disable(void)
 {
-	/* TODO Phase 4 */
 	/* stop all the alarm signals */
 	sigprocmask(SIG_BLOCK, &blocker, NULL);
 }
 
 void preempt_enable(void)
 {
-	/* TODO Phase 4 */
 	/* if alarm is fired during the preemptive session, alarm handler will be called (ie. yield) */
 	sigprocmask(SIG_UNBLOCK, &blocker, NULL);
 }
 
 void preempt_start(void)
 {
-	/* TODO Phase 4 */
 	/* setting up the timer */
 	memset(&sa, 0, sizeof(sa));
 	sa.sa_handler = &handler;
@@ -72,7 +69,6 @@ void preempt_start(void)
 
 void preempt_stop(void)
 {
-	/* TODO Phase 4 */
 	/* timer will stop once all values in it_value and it_interval becomes zero */
 	timer.it_value.tv_usec = 0;
 	timer.it_interval.tv_usec = 0;
