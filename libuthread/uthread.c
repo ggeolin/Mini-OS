@@ -20,7 +20,6 @@ static queue_t recycle_bin;						/* collect the exited threads*/
 static struct uthread_tcb* running_thread;		/* the current running thread, usually the functions */
 
 struct uthread_tcb {
-	/* TODO Phase 2 */
 	uthread_ctx_t *exe_context;
 	void* stack_ptr;
 	int state;
@@ -28,7 +27,6 @@ struct uthread_tcb {
 
 struct uthread_tcb *uthread_current(void)
 {
-	/* TODO Phase 2 */
 	return running_thread;
 }
 
@@ -53,7 +51,6 @@ void garbage_cleaner() {
 
 void uthread_yield(void)
 {
-	/* TODO Phase 2 */
 	/* don't want the yield to be interupted */
 	preempt_disable();
 
@@ -92,7 +89,6 @@ void uthread_yield(void)
 
 void uthread_exit(void)
 {
-	/* TODO Phase 2 */
 	running_thread->state = STATUS_EXIT;
 	/* go to the next thread if there's  any */
 	uthread_yield();
@@ -123,8 +119,6 @@ int uthread_create(uthread_func_t func, void *arg)
 
 int uthread_start(uthread_func_t func, void *arg)
 {
-	/* TODO Phase 2 */
-	/* refering to demo code */
 	ready_queue = queue_create();
 	recycle_bin = queue_create();
 
@@ -159,14 +153,12 @@ int uthread_start(uthread_func_t func, void *arg)
 
 void uthread_block(void)
 {
-	/* TODO Phase 2/3 */
 	running_thread->state = STATUS_BLOCK;
 	uthread_yield();
 }
 
 void uthread_unblock(struct uthread_tcb *uthread)
 {
-	/* TODO Phase 2/3 */
 	uthread->state = STATUS_READY;
 	queue_enqueue(ready_queue, uthread);
 }
