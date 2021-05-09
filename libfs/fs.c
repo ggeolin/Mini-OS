@@ -168,7 +168,6 @@ void init_fd_table(void) {
 */
 int fs_mount(const char *diskname)
 {
-	/* TODO: Phase 1 */
 	/* a temporary pointer to the signiture */
 	uint8_t* sig_tmp;
 
@@ -230,7 +229,6 @@ int fs_mount(const char *diskname)
 
 int fs_umount(void)
 {
-	/* TODO: Phase 1 */
 	/* if the disk is not mounted */
 	if(!mount_flag)
 		return -1;
@@ -262,7 +260,6 @@ int fs_umount(void)
 
 int fs_info(void)
 {
-	/* TODO: Phase 1 */
 	if(!mount_flag)
 		return -1;
 
@@ -280,7 +277,7 @@ int fs_info(void)
 
 int fs_create(const char *filename)
 {
-	/* TODO: Phase 2 */
+
 	/* ERROR CHECKING */
 	/* if a NULL string is passed or the disk is not mounted*/
 	if(filename == NULL || mount_flag == 0)
@@ -319,7 +316,6 @@ int fs_create(const char *filename)
 
 int fs_delete(const char *filename)
 {
-	/* TODO: Phase 2 */
 	struct root_directory* root_dir_entry = NULL;
 
 	/* ERROR CHECKING */
@@ -378,7 +374,6 @@ int fs_delete(const char *filename)
 
 int fs_ls(void)
 {
-	/* TODO: Phase 2 */
 	/* ERROR CHECKING */
 	if(mount_flag == 0)
 		return -1;
@@ -395,7 +390,6 @@ int fs_ls(void)
 
 int fs_open(const char *filename)
 {
-	/* TODO: Phase 3 */
 	struct root_directory* root_dir_entry = NULL;
 	int free_fd_index = -1;
 
@@ -436,7 +430,6 @@ int fs_open(const char *filename)
 
 int fs_close(int fd)
 {
-	/* TODO: Phase 3 */
 	/* ERROR CHECKING */
 	if(fd < 0 || fd > FS_OPEN_MAX_COUNT || fd_table[fd].file_dir_entry == NULL || mount_flag == 0)
 		return -1;
@@ -451,7 +444,6 @@ int fs_close(int fd)
 
 int fs_stat(int fd)
 {
-	/* TODO: Phase 3 */
 	/* ERROR CHECKING */
 	if(fd < 0 || fd > FS_OPEN_MAX_COUNT || fd_table[fd].file_dir_entry == NULL || mount_flag == 0)
 		return -1;
@@ -461,7 +453,6 @@ int fs_stat(int fd)
 
 int fs_lseek(int fd, size_t offset)
 {
-	/* TODO: Phase 3 */
 	/* ERROR CHECKING */
 	if(fd < 0 || fd > FS_OPEN_MAX_COUNT || fd_table[fd].file_dir_entry == NULL || mount_flag == 0)
 		return -1;
@@ -477,7 +468,6 @@ int fs_lseek(int fd, size_t offset)
 
 int fs_write(int fd, void *buf, size_t count)
 {
-	/* TODO: Phase 4 */
 	int writable_blk;
 	int offset;
 	int write_byte;
@@ -633,7 +623,6 @@ int fs_write(int fd, void *buf, size_t count)
 
 int fs_read(int fd, void *buf, size_t count)
 {
-	/* TODO: Phase 4 */
 	void* tmp_buf;
 	int file_require_blk;
 	int offset;
